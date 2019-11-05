@@ -59,9 +59,10 @@ export const getUser = () => async dispatch=> {
       })
     })
 };
-export const logout = () => {
+export const logout = (callback) => {
   Cookies.remove('token');
- return {
+  if (callback) callback();
+  return {
     type : types.LOG_OUT_SUCCESS
   }
 };

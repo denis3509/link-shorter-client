@@ -9,26 +9,34 @@ import Button from '@material-ui/core/Button';
 const useStyles = makeStyles(theme => ({
   container: {
     display: 'flex',
-    flexWrap: 'wrap',
-    flexDirection: "column"
+    flexFlow : 'column',
+    justifyContent: 'space-between'
   },
-  textField: {
+  input : {
+    display : 'flex',
+    justifyContent: 'space-between',
+    alignContent : 'center',
+  },
+  textField1: {
     marginLeft: theme.spacing(1),
     marginRight: theme.spacing(1),
     flex: 4,
   },
+  textField2: {
+    marginLeft: theme.spacing(1),
+    marginRight: theme.spacing(1),
+    flex: 5,
+  },
   dense: {
     marginTop: theme.spacing(2),
   },
-  menu: {
-    width: 200,
-  },
+
   button: {
-    width :100,
-    height : 50,
-    marginTop : 20,
-    float : 'right',
-    flex :1,
+
+
+    margin  : theme.spacing(1),
+    marginTop : theme.spacing(2),
+    flex: 1,
   }
 }));
 
@@ -43,26 +51,30 @@ export default function OutlinedTextFields(props) {
 
   return (
     <form className={classes.container} noValidate autoComplete="off">
-      <div style={{ display : 'flex', flexDirection : 'row', justifyContent : 'stretch'}}>
-      <TextField
-        id="outlined-name"
-        label="Url"
-        className={classes.textField}
-        value={url}
-        onChange={handleChange}
-        margin="normal"
-        variant="outlined"
-        type="text"
+      <div className={classes.input}>
+        <TextField
+          id="outlined-name"
+          label="Url"
+          className={classes.textField1}
+          value={url}
+          onChange={handleChange}
+          margin="normal"
+          variant="outlined"
+          type="text"
 
-      />
-      <Button onClick={handleClick} variant="contained" color="primary" className={classes.button}>
-        shorten
-      </Button>
+        />
+        <Button onClick={handleClick}
+                variant="contained"
+                color="primary"
+                className={classes.button}
+        >
+          shorten
+        </Button>
       </div>
       <TextField
         id="outlined-name"
 
-        className={classes.textField}
+        className={classes.textField2}
         value={shortUrl}
         margin="normal"
         variant="outlined"

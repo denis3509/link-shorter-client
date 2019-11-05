@@ -2,6 +2,16 @@ import React, {useState} from 'react'
 import Input from './Input'
 import Paper from '@material-ui/core/Paper'
 import LinksTable from './Table'
+import {makeStyles} from '@material-ui/core/styles';
+
+const useStyles = makeStyles(theme => ({
+    paper: {
+      width: 700,
+      margin: '50px auto',
+    },
+  })
+);
+
 const MainPage = (props) => {
   const {
     isAuth,
@@ -11,7 +21,7 @@ const MainPage = (props) => {
     errorTable,
     errorShortUrl,
   } = props;
-
+  const classes = useStyles();
   const [url, setUrl] = useState('');
   const handleClick = () => {
     if (isAuth) {
@@ -22,7 +32,7 @@ const MainPage = (props) => {
   };
 
   return (<div>
-    <Paper style={{width: 700, margin : '50px auto'}}>
+    <Paper className={classes.paper}>
       <Input
         handleChange={(event) => setUrl(event.target.value)}
         handleClick={handleClick}
@@ -30,10 +40,12 @@ const MainPage = (props) => {
         errorShortUrl={errorShortUrl}
       />
     </Paper>
-    <LinksTable
-      table={table}
-      errorTable={errorTable}
-    />
+    {
+      isAuth && <LinksTable
+        table={table}
+        errorTable={errorTable}
+      />
+    }
 
   </div>)
 };

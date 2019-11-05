@@ -21,6 +21,6 @@ instance.defaults.headers.common['Authorization'] = 'Bearer ' + Cookie.get('toke
   createLinkAuth: (url) => instance.post(`/users/link`,{url}),
   removeLink: (link_id) => instance.delete(`/users/link?link_id=${link_id}`),
   getUser: ()=> instance.get(`/users/getUser`),
-  createLink: (url) => instance.post(`/links/short`, {url})
+  createLink: (url) => instance.post(`/links/link`, {url})
 };
 export default api

@@ -6,7 +6,7 @@ export const getTable = ()=> async dispatch => {
   api.getTable()
     .then(response=>{
       const {linksTable} = response.data;
-      console.log(linksTable);
+
       dispatch({
         type: types.GET_TABLE_SUCCESS,
         table : linksTable
