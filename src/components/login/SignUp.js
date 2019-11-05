@@ -20,9 +20,7 @@ const useStyles = makeStyles(theme => ({
   dense: {
     marginTop: theme.spacing(2),
   },
-  menu: {
-    width: 200,
-  },
+
   button: {
     margin: theme.spacing(1),
   },

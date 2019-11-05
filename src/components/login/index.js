@@ -3,6 +3,15 @@ import Tabs from './Tabs'
 import Paper from '@material-ui/core/Paper'
 import SignIn from './SignIn'
 import SignUp from './SignUp'
+import {makeStyles} from '@material-ui/core/styles';
+
+const useStyles = makeStyles(theme=>({
+  paper : {
+    margin: '100px auto',
+    width : '500px'
+  }
+}));
+
 const Login = (props) => {
   const {message, error, userActions} =props;
   const [activeTab, setActiveTab] = useState(0);
@@ -12,6 +21,7 @@ const Login = (props) => {
     password:'',
 
   });
+  const classes = useStyles();
 
   const handleChange = name => event => {
     setValues({ ...values, [name]: event.target.value });
@@ -33,7 +43,7 @@ const Login = (props) => {
   };
 
   return (
-    <Paper style={{margin: '100px auto', width : '500px'}}>
+    <Paper className={classes.paper}>
       <Tabs
         value={activeTab}
         setValue={setActiveTab}

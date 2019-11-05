@@ -15,14 +15,14 @@ const useStyles = makeStyles(theme => ({
   textField: {
     marginLeft: theme.spacing(1),
     marginRight: theme.spacing(1),
-    width : "100%"
+
   },
   dense: {
     marginTop: theme.spacing(2),
   },
-  menu: {
-    width: 200,
-  },
+  button : {
+    margin : theme.spacing(1),
+  }
 }));
 
 export default function OutlinedTextFields(props) {

@@ -2,26 +2,43 @@ import React from 'react';
 import Paper from '@material-ui/core/Paper';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
+import {makeStyles} from '@material-ui/core/styles';
 
+const useStyles = makeStyles(theme => ({
+    tabs: {
+      margin: '0 auto',
+      display : 'flex',
+      flexFlow : 'row'
+    },
+    tab: {
+      width : '100%'
+    }
+  })
+);
 const TabsLogin = (props) => {
- const {value, setValue} = props;
+  const {value, setValue} = props;
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
-
+  const classes = useStyles();
   return (
     <Paper square>
       <Tabs
-        style={{margin: '0 auto'}}
+        className={classes.tabs}
         value={value}
         indicatorColor="primary"
         textColor="primary"
         onChange={handleChange}
-        aria-label="disabled tabs example"
+
       >
-        <Tab label="SignIn" />
-        <Tab label="SignUp" />
+        <Tab
+          className={classes.tab}
+          label="SignIn"
+        />
+        <Tab className={classes.tab}
+             label="SignUp"
+        />
       </Tabs>
     </Paper>
   );
